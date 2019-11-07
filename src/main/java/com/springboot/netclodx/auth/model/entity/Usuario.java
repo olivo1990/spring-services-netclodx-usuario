@@ -1,6 +1,7 @@
 package com.springboot.netclodx.auth.model.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -48,6 +49,10 @@ public class Usuario implements Serializable {
 	@JoinTable(name = "perfiles_usuario", joinColumns = @JoinColumn(name = "id_usuario"), inverseJoinColumns = @JoinColumn(name = "id_perfil"), uniqueConstraints = {
 			@UniqueConstraint(columnNames = { "id_usuario", "id_perfil" }) })
 	List<Perfil> perfiles;
+	
+	public Usuario() {
+		this.perfiles = new ArrayList<>();
+	}
 
 	public Long getId() {
 		return id;
