@@ -16,6 +16,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.persistence.UniqueConstraint;
 
 @Entity
@@ -36,6 +38,7 @@ public class Usuario implements Serializable {
 	private String correo;
 
 	@Column(name = "fecha_nacimiento")
+	@Temporal(TemporalType.DATE)
 	private Date fechaNacimiento;
 	private String direccion;
 	private Long documento;
@@ -48,10 +51,10 @@ public class Usuario implements Serializable {
 	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinTable(name = "perfiles_usuario", joinColumns = @JoinColumn(name = "id_usuario"), inverseJoinColumns = @JoinColumn(name = "id_perfil"), uniqueConstraints = {
 			@UniqueConstraint(columnNames = { "id_usuario", "id_perfil" }) })
-	List<Perfil> perfiles;
+	List<Perfil> perfil;
 	
 	public Usuario() {
-		this.perfiles = new ArrayList<>();
+		this.perfil = new ArrayList<>();
 	}
 
 	public Long getId() {
@@ -151,11 +154,11 @@ public class Usuario implements Serializable {
 	}
 
 	public List<Perfil> getPerfiles() {
-		return perfiles;
+		return perfil;
 	}
 
 	public void setPerfiles(List<Perfil> perfiles) {
-		this.perfiles = perfiles;
+		this.perfil = perfiles;
 	}
 
 	public Boolean getEstado() {

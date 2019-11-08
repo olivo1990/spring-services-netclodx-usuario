@@ -3,8 +3,8 @@ package com.springboot.netclodx.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.springboot.netclodx.models.entity.Usuario;
@@ -19,8 +19,8 @@ public class RestUsuarioController {
 	private IUsuarioService usuarioService;
 	
 	@PostMapping("/buscar")
-	public Usuario buscar(@RequestBody String username) {
-		return usuarioService.findByUsername(username);
+	public Usuario buscar(@RequestParam Long id) {
+		return usuarioService.findByUserId(id);
 	}
 
 }
