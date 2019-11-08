@@ -10,8 +10,8 @@ import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.security.oauth2.provider.token.TokenEnhancer;
 import org.springframework.stereotype.Component;
 
-import com.springboot.netclodx.auth.model.entity.Usuario;
-import com.springboot.netclodx.auth.model.interfaces.IUsuarioService;
+import com.springboot.netclodx.models.entity.Usuario;
+import com.springboot.netclodx.models.interfaces.IUsuarioService;
 
 @Component
 public class InfoAdicionalToken implements TokenEnhancer {

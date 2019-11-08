@@ -1,4 +1,4 @@
-package com.springboot.netclodx.auth.model.services;
+package com.springboot.netclodx.models.services;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -15,9 +15,9 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.springboot.netclodx.auth.model.dao.IUsuarioDao;
-import com.springboot.netclodx.auth.model.entity.Usuario;
-import com.springboot.netclodx.auth.model.interfaces.IUsuarioService;
+import com.springboot.netclodx.models.dao.IUsuarioDao;
+import com.springboot.netclodx.models.entity.Usuario;
+import com.springboot.netclodx.models.interfaces.IUsuarioService;
 
 @Service
 public class UsuarioService implements IUsuarioService, UserDetailsService {

@@ -21,8 +21,8 @@ public class SpringBootServicioNetclodxUsuarioApplication implements CommandLine
 	@Override
 	public void run(String... args) throws Exception {
 
-		/*String passwordBcrypt = passwordEncoder.encode("pro_123");
-		System.out.println(passwordBcrypt);*/
+		String passwordBcrypt = passwordEncoder.encode("pro_123");
+		System.out.println(passwordBcrypt);
 		
 		
 	}

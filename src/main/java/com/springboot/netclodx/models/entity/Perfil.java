@@ -1,4 +1,4 @@
-package com.springboot.netclodx.auth.model.entity;
+package com.springboot.netclodx.models.entity;
 
 import java.io.Serializable;
 
