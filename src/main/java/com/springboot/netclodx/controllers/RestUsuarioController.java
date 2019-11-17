@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.springboot.netclodx.models.entity.Menu;
-import com.springboot.netclodx.models.entity.Perfil;
 import com.springboot.netclodx.models.entity.Usuario;
 import com.springboot.netclodx.models.interfaces.IMenuService;
 import com.springboot.netclodx.models.interfaces.IUsuarioService;
@@ -32,14 +31,7 @@ public class RestUsuarioController {
 	}
 	
 	@PostMapping("/buscar-menu")
-	public List<Menu> buscarMenu(@RequestParam Long idUsuario) {
-		
-		Usuario usuario = new Usuario();
-		usuario = usuarioService.findByUserId(idUsuario);
-		
-		Perfil pefil = usuario.getPerfiles().get(0);
-		Long idPerfil = pefil.getId();
-		
+	public List<Menu> buscarMenu(@RequestParam Long idPerfil) {
 		return menuService.buscarMenu(idPerfil);
 	}
 

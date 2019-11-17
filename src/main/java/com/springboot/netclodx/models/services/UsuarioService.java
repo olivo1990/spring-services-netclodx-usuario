@@ -38,9 +38,9 @@ public class UsuarioService implements IUsuarioService, UserDetailsService {
 			throw new UsernameNotFoundException("Error en el login: no existe el suario " + username + " en el sistema!");
 		}
 		
-		List<GrantedAuthority> authorities = usuario.getPerfiles()
+		List<GrantedAuthority> authorities = usuario.getRoles()
 				.stream()
-				.map(perfil -> new SimpleGrantedAuthority(perfil.getNombre()))
+				.map(rol -> new SimpleGrantedAuthority(rol.getNombre()))
 				.peek(authority -> logger.info("Role: " + authority.getAuthority()))
 				.collect(Collectors.toList());
 		

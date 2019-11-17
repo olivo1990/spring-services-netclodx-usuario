@@ -47,14 +47,16 @@ public class Usuario implements Serializable {
 	@Column(name = "tipo_empleado")
 	private int tipoEmpleado;
 	private Boolean estado;
+	@Column(name="id_perfil")
+	private Long idPerfil;
 
 	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinTable(name = "perfiles_usuario", joinColumns = @JoinColumn(name = "id_usuario"), inverseJoinColumns = @JoinColumn(name = "id_perfil"), uniqueConstraints = {
-			@UniqueConstraint(columnNames = { "id_usuario", "id_perfil" }) })
-	List<Perfil> perfil;
+	@JoinTable(name = "roles_usuario", joinColumns = @JoinColumn(name = "id_usuario"), inverseJoinColumns = @JoinColumn(name = "id_rol"), uniqueConstraints = {
+			@UniqueConstraint(columnNames = { "id_usuario", "id_rol" }) })
+	List<Rol> roles;
 	
 	public Usuario() {
-		this.perfil = new ArrayList<>();
+		this.roles = new ArrayList<>();
 	}
 
 	public Long getId() {
@@ -153,20 +155,29 @@ public class Usuario implements Serializable {
 		this.tipoEmpleado = tipoEmpleado;
 	}
 
-	public List<Perfil> getPerfiles() {
-		return perfil;
-	}
-
-	public void setPerfiles(List<Perfil> perfiles) {
-		this.perfil = perfiles;
-	}
-
 	public Boolean getEstado() {
 		return estado;
 	}
 
 	public void setEstado(Boolean estado) {
 		this.estado = estado;
+	}
+	
+
+	public List<Rol> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<Rol> rol) {
+		this.roles = rol;
+	}
+
+	public Long getIdPerfil() {
+		return idPerfil;
+	}
+
+	public void setIdPerfil(Long idPeril) {
+		this.idPerfil = idPeril;
 	}
 
 	/**
